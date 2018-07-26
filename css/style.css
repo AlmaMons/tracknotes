@@ -1,0 +1,222 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: 'note-tracker-icon-font';
+  src:  url('../fonts/note-tracker-icon-font.eot?d4fzog');
+  src:  url('../fonts/note-tracker-icon-font.eot?d4fzog#iefix') format('embedded-opentype'),
+    url('../fonts/note-tracker-icon-font.ttf?d4fzog') format('truetype'),
+    url('../fonts/note-tracker-icon-font.woff?d4fzog') format('woff'),
+    url('../fonts/note-tracker-icon-font.svg?d4fzog#note-tracker-icon-font') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*HEADER*/
+
+.icon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'note-tracker-icon-font' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  font-size: 27px;
+  color: #c3cfd4;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon:active{
+  color: #344750;
+}
+
+.icon-edit:before {
+  content: "\e905";
+}
+.icon-color:before {
+  content: "\e90c";
+}
+.icon-images:before {
+  content: "\e90e";
+}
+.icon-all-notes:before {
+  content: "\e925";
+}
+.icon-notes:before {
+  content: "\e926";
+}
+.icon-trash:before {
+  content: "\e9ac";
+}
+.icon-link:before {
+  content: "\e9cb";
+}
+.icon-new-tab:before {
+  content: "\ea7e";
+}
+
+header {
+  width: 14%; 
+  height: 800px; 
+  float: left;
+  position: fixed;
+}
+
+#logo{
+  color: #344750;
+  margin: 45px 0 100px 0;
+  text-align: center;
+  font-size: 3.2em;
+}
+
+span {
+  color:#60c9df;
+}
+
+ul li{
+  list-style: none;
+  margin: 25px;
+  margin-top: 35px;
+  /*padding: 5px;*/
+  cursor: pointer;
+   /*border: 1px solid black;*/
+}
+
+ul li:active{
+  color: #344750;
+}
+
+ #hr{
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin: 0 auto;
+    width: 80%; 
+ }
+
+/*MAIN PART*/
+.main{
+  background-color: #f3f5f7;
+  color: #344750;
+  height: 100vh; 
+  width: 85%; 
+  float: right;
+  overflow: auto;
+}
+
+.container{
+  margin: 60px;
+  height: 800px;
+}
+
+/*div title*/
+#title{
+  border: 1px solid black;
+  margin-bottom: 50px;
+  overflow: auto;
+}
+
+#title h1{
+  float: left;
+}
+
+.btn {
+  padding: 10px 20px;
+  background-color: #4ebd65;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  font-size: 18px;
+  text-align: center;
+  cursor: pointer;
+  float: right;
+}
+
+/*div content*/
+.content{
+  border: 1px solid red;
+  clear: both;
+  display: grid;
+  align-items: flex-start;
+  /*justify-content: space-between;
+  flex-wrap: wrap;*/
+  grid-template-columns: 30% 30% 30%;
+  grid-gap: 1em;
+  grid-auto-columns: 50px;
+  position: relative;
+}
+
+.content .box{
+  /*border: 1px solid black;*/
+  padding: 30px;
+  padding-bottom: 70px;
+  
+}
+
+.box{
+  /*width: 20%;*/
+  margin: 20px;
+  background-color: #fff;
+  box-shadow: 4px 4px #e0e2e4;
+  text-align: justify;
+  word-wrap: break-word;
+  position: relative;
+  
+}
+
+.box1{
+  position: relative;
+  margin: 20px;
+  overflow: hidden;
+}
+
+#img-box{
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+  height: 100%;
+}
+
+/*hover deo*/
+.hover-icons{
+  position: absolute;
+  bottom: 15px;
+  transition: .5s ease;
+  opacity:0;
+}
+
+.hover-icons div, .hover-img div{
+  display: inline;
+  margin: 10px;
+}
+
+.box:hover .hover-icons{
+  opacity: 1;
+}
+
+.box a{
+  text-decoration: none;
+  color: #60c9df;
+  font-size: 20px;
+}
+
+.hover-img{
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  color: #adbec5;
+  opacity: 0;
+  z-index: 1;
+  position: absolute;
+  bottom: 0;
+}
+
+.box1:hover .hover-img{
+  opacity: 1;
+}
