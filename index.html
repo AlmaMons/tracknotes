@@ -16,11 +16,11 @@
 		</div>
 		<nav>
 			<ul>
-				<li class="icon icon-all-notes"> All bands
+				<li class="icon icon-all-notes"> All notes
 					<ul>
-						<li class="icon icon-notes"> Rock</li>
-						<li class="icon icon-images"> Metal </li>
-						<li class="icon icon-link"> Pop</li>
+						<li class="icon icon-notes"> Notes</li>
+						<li class="icon icon-images"> Images </li>
+						<li class="icon icon-link"> Links</li>
 					</ul>
 				</li>
 					
@@ -30,24 +30,34 @@
 		</nav>
 	</header>
 
-	<div class="main">
+	<div class="main" ng-controller="mainCtrl">
 		<div class="container">
 			<div id="title">
 				<h1>Notes</h1>
-				<button class="btn">Add New Notes</button>
+				<button class="btn" ng-click="display()">Add New Notes</button>
 			</div>
-			<div class="content">
-				<div class="box">
-					<h2>Rgdfgdfgheafeafaefaefefaefeafaefeafaef   feafefaef</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In excepturi veritatis earum aliquid doloribus molestias, eveniet molestiae aperiam ratione. Facilis velit, voluptatibus impedit eligendi delectus illo earum, voluptatum, laudantium molestiae dolorem explicabo nemo tempora nam vero assumenda voluptate ad eos obcaecati tenetur veritatis eveniet. Quam minima culpa veniam assumenda itaque inventore hic placeat ducimus quia. Voluptatum nulla possimus ad modi.</p>
+			<div class="grid-content" ng-repeat="band in bands" >
+				<!-- div 1 -->
+				<div class="box box-item1">
+					<h2>1 {{band.name}}</h2>
+					<p>{{band.info}}</p>
 					<div class="hover-icons">
 						<div class="icon icon-color"></div>
 						<div class="icon icon-edit"></div>
 						<div class="icon icon-trash"></div>
 					</div>
 				</div>
-				<div class="box">
-					<a href="#" target="_blank">www.google.com</a>
+				<!-- div 2 -->
+				<div class="box1 box-item2">
+					<img ng-src="{{band.img_url}}" id="img-box">
+					<div class="hover-img">
+						<div class="icon icon-edit"></div>
+						<div class="icon icon-trash"></div>
+					</div>
+				</div>
+				<!-- div 3 -->
+				<div class="box box-item3">
+					<a href="#" target="_blank">3 www.google.com</a>
 					<div class="icon icon-new-tab" ></div>
 					<div class="hover-icons">
 						<div class="icon icon-color"></div>
@@ -55,34 +65,35 @@
 						<div class="icon icon-trash"></div>
 					</div>
 				</div>
-				<div class="box1">
-					<img src="https://www.montenegropulse.com/images/Perast-Kotor-Bay-Montenegro.jpg" id="img-box">
+				<!-- div 4 -->
+				<div class="box box-item4">
+					<h2>4 {{band.name}}</h2>
+					<p>{{band.info}}</p>
+					<div class="hover-icons">
+						<div class="icon icon-color"></div>
+						<div class="icon icon-edit"></div>
+						<div class="icon icon-trash"></div>
+					</div>
+				</div>
+				<!-- div 5 -->
+				<div class="box1 box-item5">
+					<img ng-src="{{band.img_url}}" id="img-box">
 					<div class="hover-img">
 						<div class="icon icon-edit"></div>
 						<div class="icon icon-trash"></div>
 					</div>
 				</div>
-				<div class="box">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore praesentium vel minima quae atque et reprehenderit dolor in consequuntur amet, ea ut autem enim laborum culpa. A, harum modi corporis.</p>
+				<!-- div 6 -->
+				<div class="box box-item6">
+					<h2>6 {{band.name}}</h2>
+					<p>{{band.info}}</p>
+					<div class="hover-icons">
+						<div class="icon icon-color"></div>
+						<div class="icon icon-edit"></div>
+						<div class="icon icon-trash"></div>
+					</div>
 				</div>
-				<div class="box">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore praesentium vel minima quae atque et reprehenderit dolor in consequuntur amet, ea ut autem enim laborum culpa. A, harum modi corporis.</p>
-				</div>
-				<div class="box">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore praesentium vel minima quae atque et reprehenderit dolor in consequuntur amet, ea ut autem enim laborum culpa. A, harum modi corporis.</p>
-				</div>
-				<div class="box">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore praesentium vel minima quae atque et reprehenderit dolor in consequuntur amet, ea ut autem enim laborum culpa. A, harum modi corporis.</p>
-				</div>
-				<div class="box">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore praesentium vel minima quae atque et reprehenderit dolor in consequuntur amet, ea ut autem enim laborum culpa. A, harum modi corporis.</p>
-				</div>
-				<div class="box">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore praesentium vel minima quae atque et reprehenderit dolor in consequuntur amet, ea ut autem enim laborum culpa. A, harum modi corporis.</p>
-				</div>
-				<div class="box">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore praesentium vel minima quae atque et reprehenderit dolor in consequuntur amet, ea ut autem enim laborum culpa. A, harum modi corporis.</p>
-				</div>
+				
 			</div>
 		</div>
 		

@@ -117,7 +117,6 @@ ul li:active{
 
 /*div title*/
 #title{
-  border: 1px solid black;
   margin-bottom: 50px;
   overflow: auto;
 }
@@ -138,49 +137,66 @@ ul li:active{
   float: right;
 }
 
-/*div content*/
-.content{
+/*grid content*/
+.grid-content{
   border: 1px solid red;
   clear: both;
   display: grid;
-  align-items: flex-start;
-  /*justify-content: space-between;
-  flex-wrap: wrap;*/
-  grid-template-columns: 30% 30% 30%;
-  grid-gap: 1em;
-  grid-auto-columns: 50px;
+  grid-template-columns: repeat(3,1fr);
+  grid-auto-rows: minmax(100px, auto);
+/*grid-auto-rows: 100px;*/
+  grid-gap: 3em;
   position: relative;
 }
 
-.content .box{
-  /*border: 1px solid black;*/
-  padding: 30px;
-  padding-bottom: 70px;
-  
-}
-
 .box{
-  /*width: 20%;*/
-  margin: 20px;
+  padding: 30px;
+  padding-bottom: 80px;
   background-color: #fff;
   box-shadow: 4px 4px #e0e2e4;
   text-align: justify;
   word-wrap: break-word;
   position: relative;
+}
+
+.box-item1{
+  /*sgrid-row:1/3;*/
+}
+
+.box-item2{
   
+}
+
+.box-item3{
+  align-self: start;
+}
+
+.box h2{
+  margin-bottom: 20px;
+}
+
+.box a{
+  text-decoration: none;
+  color: #60c9df;
+  font-size: 20px;
+  float: left;
+}
+
+.icon-new-tab{
+  float: right;
 }
 
 .box1{
   position: relative;
-  margin: 20px;
+  /*margin: 20px;*/
   overflow: hidden;
 }
 
 #img-box{
-  position: absolute;
+  /*position: absolute; */ /*!!!kad ovo stoji onda se slika izgubi/sakrije !!!*/
   width: 100%;
-  z-index: 1;
   height: 100%;
+  z-index: 1;
 }
 
 /*hover deo*/
@@ -196,14 +212,8 @@ ul li:active{
   margin: 10px;
 }
 
-.box:hover .hover-icons{
+.box:hover .hover-icons, .box1:hover .hover-img{
   opacity: 1;
-}
-
-.box a{
-  text-decoration: none;
-  color: #60c9df;
-  font-size: 20px;
 }
 
 .hover-img{
@@ -215,8 +225,4 @@ ul li:active{
   z-index: 1;
   position: absolute;
   bottom: 0;
-}
-
-.box1:hover .hover-img{
-  opacity: 1;
 }
