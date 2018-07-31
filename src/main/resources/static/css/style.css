@@ -26,7 +26,7 @@
   text-transform: none;
   line-height: 1;
   font-size: 27px;
-  color: #c3cfd4;
+  color: black;/*#c3cfd4;*/
 
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
@@ -115,10 +115,11 @@ ul li:active{
   height: 800px;
 }
 
-/*div title*/
+/*DIV TITLE*/
 #title{
   margin-bottom: 50px;
   overflow: auto;
+  border: 1px solid black;
 }
 
 #title h1{
@@ -137,50 +138,29 @@ ul li:active{
   float: right;
 }
 
-/*grid content*/
-.grid-content{
-  border: 1px solid red;
-  clear: both;
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  grid-auto-rows: minmax(100px, auto);
-/*grid-auto-rows: 100px;*/
-  grid-gap: 3em;
-  position: relative;
-}
-
+/*CONTENT*/
 .box{
-  padding: 30px;
-  padding-bottom: 80px;
+  /*padding: 10px;*/
+  /*padding-bottom: 80px;*/
   background-color: #fff;
   box-shadow: 4px 4px #e0e2e4;
   text-align: justify;
-  word-wrap: break-word;
-  position: relative;
+  /*word-wrap: break-word;*/
+  /*position: relative;*/
 }
 
-.box-item1{
-  /*sgrid-row:1/3;*/
+md-card-content h2{
+  /*margin-bottom: 20px;*/
+  margin: 0;
+  padding: 0;
 }
 
-.box-item2{
-  
-}
-
-.box-item3{
-  align-self: start;
-}
-
-.box h2{
-  margin-bottom: 20px;
-}
-
-.box a{
+/*.box a{
   text-decoration: none;
   color: #60c9df;
   font-size: 20px;
-  float: left;
-}
+  /*float: left;
+}*/
 
 .icon-new-tab{
   float: right;
@@ -200,12 +180,12 @@ ul li:active{
 }
 
 /*hover deo*/
-.hover-icons{
+/*.hover-icons{
   position: absolute;
   bottom: 15px;
   transition: .5s ease;
   opacity:0;
-}
+}*/
 
 .hover-icons div, .hover-img div{
   display: inline;
@@ -226,3 +206,8 @@ ul li:active{
   position: absolute;
   bottom: 0;
 }
+
+.gridListdemoBasicUsage{
+  border: 1px solid black;
+}
+
