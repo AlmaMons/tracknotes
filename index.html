@@ -6,7 +6,22 @@
 	
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+<!-- 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+ -->	<link rel="stylesheet" type="text/css" href="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.10/angular-material.css">
+	<link rel="stylesheet" type="text/css" href="https://material.angularjs.org/1.1.10/docs.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-animate.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-route.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-aria.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-messages.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.js"></script>
+	<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/svg-assets-cache.js"></script>
+	<script src="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.10/angular-material.js"></script>
+
+
+
+	
 
 </head>
 <body ng-controller="mainCtrl">
@@ -30,76 +45,77 @@
 		</nav>
 	</header>
 
-	<div class="main" ng-controller="mainCtrl">
-		<div class="container">
-			<div id="title">
-				<h1>Notes</h1>
-				<button class="btn" ng-click="display()">Add New Notes</button>
-			</div>
-			<div class="grid-content" ng-repeat="band in bands" >
-				<!-- div 1 -->
-				<div class="box box-item1">
-					<h2>1 {{band.name}}</h2>
-					<p>{{band.info}}</p>
-					<div class="hover-icons">
-						<div class="icon icon-color"></div>
-						<div class="icon icon-edit"></div>
-						<div class="icon icon-trash"></div>
-					</div>
-				</div>
-				<!-- div 2 -->
-				<div class="box1 box-item2">
-					<img ng-src="{{band.img_url}}" id="img-box">
-					<div class="hover-img">
-						<div class="icon icon-edit"></div>
-						<div class="icon icon-trash"></div>
-					</div>
-				</div>
-				<!-- div 3 -->
-				<div class="box box-item3">
-					<a href="#" target="_blank">3 www.google.com</a>
-					<div class="icon icon-new-tab" ></div>
-					<div class="hover-icons">
-						<div class="icon icon-color"></div>
-						<div class="icon icon-edit"></div>
-						<div class="icon icon-trash"></div>
-					</div>
-				</div>
-				<!-- div 4 -->
-				<div class="box box-item4">
-					<h2>4 {{band.name}}</h2>
-					<p>{{band.info}}</p>
-					<div class="hover-icons">
-						<div class="icon icon-color"></div>
-						<div class="icon icon-edit"></div>
-						<div class="icon icon-trash"></div>
-					</div>
-				</div>
-				<!-- div 5 -->
-				<div class="box1 box-item5">
-					<img ng-src="{{band.img_url}}" id="img-box">
-					<div class="hover-img">
-						<div class="icon icon-edit"></div>
-						<div class="icon icon-trash"></div>
-					</div>
-				</div>
-				<!-- div 6 -->
-				<div class="box box-item6">
-					<h2>6 {{band.name}}</h2>
-					<p>{{band.info}}</p>
-					<div class="hover-icons">
-						<div class="icon icon-color"></div>
-						<div class="icon icon-edit"></div>
-						<div class="icon icon-trash"></div>
-					</div>
-				</div>
-				
-			</div>
-		</div>
+	<!-- <div class="main" ng-controller="mainCtrl"> -->
+		<div class="main">
+		<div ng-cloak="" class="gridListdemoBasicUsage">
+  <md-grid-list md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="6" md-row-height-gt-md="1:1" md-row-height="2:2" md-gutter="12px" md-gutter-gt-sm="8px">
+
+    <md-grid-tile ng-repeat = "band in bands" class="{{band.color}}" md-rowspan="{{band.row}}" md-colspan="{{band.col}}" md-colspan-sm="1" md-colspan-xs="1" >
 		
+		<div ng-if="band.note">
+        <p>{{band.content}}</p>
+        <md-grid-tile-footer>
+        <h3>{{band.title}}</h3>
+      </md-grid-tile-footer>
+    	</div>
+
+
+		<div ng-if="band.picture">
+        <img id ="img-box" src="{{band.content}}"/>
+        <md-grid-tile-footer>
+        <h3>{{band.title}}</h3>
+      </md-grid-tile-footer>
+    	</div>
+
+
+    	<div ng-if="band.link">
+        	<md-grid-tile-footer>
+        <h3>{{band.title}}</h3>
+      </md-grid-tile-footer>
+    	</div>
+      
+      <!-- <md-grid-tile-footer>
+        <h3>{{band.title}}</h3>
+      </md-grid-tile-footer> -->
+    </md-grid-tile>
+
+    <!-- <md-grid-tile class="green">
+      <md-grid-tile-footer>
+        <h3>#2: (1r x 1c)</h3>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+
+    <md-grid-tile class="yellow">
+      <md-grid-tile-footer>
+        <h3>#3: (1r x 1c)</h3>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+
+    <md-grid-tile class="blue" md-rowspan="2">
+      <md-grid-tile-footer>
+        <h3>#4: (2r x 1c)</h3>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+
+    <md-grid-tile class="red" md-rowspan="2" md-colspan="2" md-colspan-sm="1" md-colspan-xs="1">
+      <md-grid-tile-footer>
+        <h3>#5: (2r x 2c)</h3>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+
+    <md-grid-tile class="green" md-rowspan="2">
+      <md-grid-tile-footer>
+        <h3>#6: (2r x 1c)</h3>
+      </md-grid-tile-footer>
+    </md-grid-tile> -->
+    
+   
+    
+  </md-grid-list>
+
 
 	</div>
-
+</div>
 <!-- <table>
 	<th>name</th>
 	<th>genre</th>
