@@ -1,10 +1,10 @@
 package com.kaca.trackNotes.model;
 
 import javax.persistence.*;
-import java.util.Date;
+
 
 @Entity
-public class Images {
+public class Image {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,16 +16,13 @@ public class Images {
     @Column (nullable = false)
     private boolean obrisan;
 
-    @Column (nullable = false)
-    private Date datumUnosa;
 
-    public Images() {
+    public Image() {
     }
 
-    public Images(String urlImg, boolean obrisan, Date datumUnosa) {
+    public Image(String urlImg, boolean obrisan) {
         this.urlImg = urlImg;
         this.obrisan = obrisan;
-        this.datumUnosa=datumUnosa;
     }
 
     public long getId() {
@@ -52,21 +49,14 @@ public class Images {
         this.obrisan = obrisan;
     }
 
-    public Date getDatumUnosa() {
-        return datumUnosa;
-    }
 
-    public void setDatumUnosa(Date datumUnosa) {
-        this.datumUnosa = datumUnosa;
-    }
 
     @Override
     public String toString() {
-        return "Images{" +
+        return "Image{" +
                 "id=" + id +
                 ", urlImg='" + urlImg + '\'' +
                 ", obrisan=" + obrisan + '\'' +
-                ", datum unosa=" + datumUnosa+
                 '}';
     }
 }

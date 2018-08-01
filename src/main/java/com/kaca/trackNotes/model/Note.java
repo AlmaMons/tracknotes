@@ -1,18 +1,20 @@
 package com.kaca.trackNotes.model;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
-import java.util.Date;
+
 
 @Entity
-public class Notes {
+public class Note {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column(nullable = false)
-    private String nasov;
+    private String naslov;
 
     @Column(nullable = false)
     private String tekst;
@@ -23,57 +25,67 @@ public class Notes {
     @Column(nullable = false)
     private String boja;
 
-    @Column(nullable = false)
-    private Date datumUnosa;
 
-    public Notes() {
+    public Note() {
     }
 
-    public Notes(String nasov, String tekst, boolean obrisan, String boja, Date datumUnosa) {
-        this.nasov = nasov;
+    public Note(String naslov, String tekst, boolean obrisan, String boja) {
+        this.naslov = naslov;
         this.tekst = tekst;
         this.obrisan = obrisan;
         this.boja = boja;
-        this.datumUnosa=datumUnosa;
+    }
+
+    public long getId() {
+        return id;
     }
 
     public void setId(long id) {
         this.id = id;
     }
 
-    public void setNasov(String nasov) {
-        this.nasov = nasov;
+    public String getNaslov() {
+        return naslov;
+    }
+
+    public void setNaslov(String naslov) {
+        this.naslov = naslov;
+    }
+
+    public String getTekst() {
+        return tekst;
     }
 
     public void setTekst(String tekst) {
         this.tekst = tekst;
     }
 
+    public boolean isObrisan() {
+        return obrisan;
+    }
+
     public void setObrisan(boolean obrisan) {
         this.obrisan = obrisan;
+    }
+
+    public String getBoja() {
+        return boja;
     }
 
     public void setBoja(String boja) {
         this.boja = boja;
     }
 
-    public Date getDatumUnosa() {
-        return datumUnosa;
-    }
 
-    public void setDatumUnosa(Date datumUnosa) {
-        this.datumUnosa = datumUnosa;
-    }
 
     @Override
     public String toString() {
-        return "Notes{" +
+        return "Note{" +
                 "id=" + id +
-                ", nasov='" + nasov + '\'' +
+                ", nasov='" + naslov + '\'' +
                 ", tekst='" + tekst + '\'' +
                 ", obrisan=" + obrisan +
                 ", boja='" + boja + '\'' +
-                ", datumUnosa=" + datumUnosa +
                 '}';
     }
 }

@@ -1,7 +1,7 @@
 package com.kaca.trackNotes.model;
 
 import javax.persistence.*;
-import java.util.Date;
+
 
 @Entity
 public class Link {
@@ -19,17 +19,14 @@ public class Link {
     @Column(nullable = false)
     private String boja;
 
-    @Column(nullable = false)
-    private Date datumUnosa;
 
     public Link() {
     }
 
-    public Link(String urlLink, boolean obrisan, String boja, Date datumUnosa) {
+    public Link(String urlLink, boolean obrisan, String boja) {
         this.urlLink = urlLink;
         this.obrisan = obrisan;
         this.boja = boja;
-        this.datumUnosa = datumUnosa;
     }
 
     public long getId() {
@@ -64,13 +61,6 @@ public class Link {
         this.boja = boja;
     }
 
-    public Date getDatumUnosa() {
-        return datumUnosa;
-    }
-
-    public void setDatumUnosa(Date datumUnosa) {
-        this.datumUnosa = datumUnosa;
-    }
 
     @Override
     public String toString() {
@@ -79,7 +69,6 @@ public class Link {
                 ", urlLink='" + urlLink + '\'' +
                 ", obrisan=" + obrisan +
                 ", boja='" + boja + '\'' +
-                ", datumUnosa=" + datumUnosa +
                 '}';
     }
 }
