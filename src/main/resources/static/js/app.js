@@ -1,13 +1,13 @@
 var app = angular.module('kim',['ngMaterial', 'ngMessages', 'material.svgAssetsCache']);
 
 
-app.controller('mainCtrl', function($scope,$http){
+app.controller('mainCtrl', function($scope,$http,$mdDialog){
 
 $scope.bands = [
 	// NOTES
 	{
 		"title": "Naslov",
-		"content":"Lorem ipsum dolor sit amet, consectetur adipisaefjkafeljafelefheflefaefkjlaefkjaefkjlaefaefkjaefkjefh jaefhfekhealkfjealfkjeaf   lk;jefl;keajf;lk ejaf;lkea jfle;akf eal;kfjeal;kfjea;lkfjea;lkfjeal;kfjeafljkicing elit. Placeat repellendus consectetur sapiente temporibus, doloremque aliquid nesciunt minima in voluptas quasi adipisci. Enim excepturi a ratione iste, fugit laborum temporibus harum minus ut sunt officia quas eligendi asperiores voluptas tempora dolor.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat repellendus consectetur sapiente temporibus, doloremque aliquid nesciunt minima in voluptas quasi adipisci. Enim excepturi a ratione iste, fugit laborum temporibus harum minus ut sunt officia quas eligendi asperiores voluptas tempora dolor.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat repellendus consectetur sapiente temporibus, doloremque aliquid nesciunt minima in voluptas quasi adipisci. Enim excepturi a ratione iste, fugit laborum temporibus harum minus ut sunt officia quas eligendi asperiores voluptas tempora dolor.",
+		"content":"Lorem ipsum dolor sit amet, consectetur adipisaefjkafeljafelefljkoijKALEheflefaefkjlaefkjaefkjlaefaefkjaefkjefh jaefhfekhealkfjealfkjeaf   lk;jefl;keajf;lk ejaf;lkea jfle;akf eal;kfjeal;kfjea;lkfjea;lkfjeal;kfjeafljkicing elit. Placeat repellendus consectetur sapiente temporibus, doloremque aliquid nesciunt minima in voluptas quasi adipisci. Enim excepturi a ratione iste, fugit laborum temporibus harum minus ut sunt officia quas eligendi asperiores voluptas tempora dolor.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat repellendus consectetur sapiente temporibus, doloremque aliquid nesciunt minima in voluptas quasi adipisci. Enim excepturi a ratione iste, fugit laborum temporibus harum minus ut sunt officia quas eligendi asperiores voluptas tempora dolor.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat repellendus consectetur sapiente temporibus, doloremque aliquid nesciunt minima in voluptas quasi adipisci. Enim excepturi a ratione iste, fugit laborum temporibus harum minus ut sunt officia quas eligendi asperiores voluptas tempora dolor.",
 		"note": true, 
 		"row":3,
 		"col":1	
@@ -42,7 +42,7 @@ $scope.bands = [
 	},
 	{
 		"title": "Naslov",
-		"content":"Placeat repellendus consectetur sapiente temporibus, doloremque aliquid nesciunt minima in voluptas quasi adipisci. Enim excepturi a ratione iste, fugit laborum temporibus harum minus ut sunt officia quas eligendi asperiores voluptas tempora dolor.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat repellendus consectetur sapiente temporibus, doloremque aliquid nesciunt minima in voluptas quasi adipisci. Enim excepturi a ratione iste, fugit laborum temporibus harum minus ut sunt officia quas eligendi asperiores voluptas tempora dolor.",
+		"content":"Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, delectus.Placeat repellendus consectetur sapiente temporibus, doloremque aliquid nesciunt minima in voluptas quasi adipisci. Enim excepturi a ratione iste, fugit laborum temporibus harum minus ut sunt officia quas eligendi asperiores voluptas tempora dolor.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat repellendus consectetur sapiente temporibus, doloremque aliquid nesciunt minima in voluptas quasi adipisci. Enim excepturi a ratione iste, fugit laborum temporibus harum minus ut sunt officia quas eligendi asperiores voluptas tempora dolor.",
 		"note": true,
 		"row":2,
 		"col":1	
@@ -70,12 +70,25 @@ $scope.calculateRowSpan = function (object){
 // 	console.log(error);
 // })
 
-// $scope.display=function(){
-// 	console.log("radi dugme");
+
+// $scope.openModal= function (){
+// 	console.log("dugme radi");
 // }
 
 
+ $scope.showPrerenderedDialog = function(ev) {
+    $mdDialog.show({
+      contentElement: '#myDialog',
+      parent: angular.element(document.body),
+      targetEvent: ev,
+      clickOutsideToClose: true
+    });
+  };
 
 })
+
+
+
+
 
 

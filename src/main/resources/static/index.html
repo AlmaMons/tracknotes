@@ -9,6 +9,8 @@
 	<link rel="stylesheet" type="text/css" href="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.10/angular-material.css">
 	<link rel="stylesheet" type="text/css" href="https://material.angularjs.org/1.1.10/docs.css">
 
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-animate.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-route.min.js"></script>
@@ -23,11 +25,11 @@
 	<!-- HEADER -->
 	<header>
 		<div>
-			<p id="logo">track<span>notes</span></p>
+			<p id="logo">track<span class="blue-color">notes</span></p>
 		</div>
 		<nav>
 			<ul>
-				<li class="icon icon-all-notes"> All notes
+				<li class="icon icon-all-notes vl"> All notes
 					<ul>
 						<li class="icon icon-notes"> Notes</li>
 						<li class="icon icon-images"> Images </li>
@@ -36,7 +38,7 @@
 				</li>
 					
 				<div id="hr"></div>
-				<li class="icon icon-trash"> Trash</li>
+				<li class="icon icon-trash vl"> Trash</li>
 			</ul>
 		</nav>
 	</header>
@@ -46,45 +48,122 @@
 			<!-- TITLE AND BUTTON -->
 			<div id="title">
 				<h1>Notes</h1>
-				<button class="btn" ng-click="display()">Add New Notes</button>
+				<button class="btn" id="btn1" ng-click="showPrerenderedDialog($event)">Add New Notes</button>
 			</div>
 			<!-- CONTENT -->
 			<div ng-cloak="" class="gridListdemoBasicUsage">
 				<md-grid-list md-cols-xs="1" md-cols-sm="2" md-cols-md="2" md-cols-gt-md="3" md-row-height-gt-md="3.5:1" md-row-height="2.6:1" md-gutter="50px" md-gutter-gt-sm="50px" class>
 					<md-grid-tile ng-repeat = "band in bands" md-rowspan="{{calculateRowSpan(band)}}" md-colspan="1" md-colspan-sm="1" md-colspan-xs="1" >
 						<!-- NOTES -->
-						<md-card flex layout-fill ng-if="band.note" class="box">
-					        <md-card-content>
+						<md-card layout-fill ng-if="band.note" class="box">
+					        <md-card-content >
 					            <h2>{{band.title}}</h2>
 								<p>{{band.content}}</p>
 					        </md-card-content>
 					    </md-card>
 						<!-- IMAGES -->
-					 	<md-card layout-fill ng-if="band.picture" class="box1">
+					 	<md-card layout-fill ng-if="band.picture" >
 					          <img ng-src="{{band.img}}" id="img-box">
-					          
 					    </md-card>
 						<!-- LINK -->
 						 <md-card layout-fill ng-if="band.link" class="box">
-					        <md-card-content> {{band.url}} </md-card-content>
-					        <div class="icon icon-new-tab"></div>							
+					        <md-card-content > 
+					        	<a href="{{band.url}}" class="blue-color" target="_blanck">{{band.url}} </a> 
+								<div class="icon icon-new-tab"></div>
+					        </md-card-content>							
 					    </md-card>
-							
-							<md-grid-tile-footer>
-								<div class="hover-icons">
+						<!-- FOOTER MD-GRID -->
+						<md-grid-tile-footer>
+							<div class="hover-icons">
 								<div class="icon icon-color"></div>
 								<div class="icon icon-edit"></div>
 								<div class="icon icon-trash"></div>
 							</div>
-							</md-grid-tile-footer>
+						</md-grid-tile-footer>
 					</md-grid-tile>	
 				 </md-grid-list>
 			</div>
 		</div>
 		
 
-	</div>
+	<div style="visibility: hidden">
+   		<div class="md-dialog-container" id="myDialog">
+     		<md-dialog layout-padding="">
+      		 	<h2>Pre-Rendered Dialog</h2>
+        	 	<p>
+      		    This is a pre-rendered dialog, which means that <code>$mdDialog</code> doesn't compile its
+          		template on each opening.
+          		<br><br>
+          		The Dialog Element is a static element in the DOM, which is just visually hidden.<br>
+          		Once the dialog opens, we just fetch the element from the DOM into our dialog and upon close
+          		we restore the element back into its old DOM position.
+        		</p>
+      		</md-dialog>
+    	</div>
+  </div>
+		<!-- The Modal -->
+		<modal id="my-modal1">
+			<div class="modal">
+				<!-- MODAL DIALOG ADD NOTE-->
+				<!-- Modal content -->
+				<div class="modal-content">
+				  	<div class="modal-header">
+				   		<h2>Add/Edit Note</h2>
+				  	</div>
+				  	<div class="modal-body">
+				  		<div>
+				  			<p>Choose what kind of note you would like to add:</p> 
+				  			<div >
+				  				<input type="radio" name="Notes" >					    
+				  				<label class="icon icon-notes" id="ic1"> Notes</label>
+								
+								<input type="radio" name="Images" class="input-radio">  
+								<label class="icon icon-images" id="ic2"> Images</label>						
 
+								<input type="radio" name="Link" class="input-radio"> 
+								<label class="icon icon-link" id="ic3"> Links</label>					
+				  			</div>
+				  		</div>
+				  		<!-- NOTE -->
+				  		<div >
+				  			<input type="text" name="text" placeholder="Titile" class="input-text">
+				  			<input type="text" name="text" placeholder="Take a note..." class="input-text">
+				  		</div>
+				  		<!-- IMAGE -->
+				  		<div>
+				  			<input type="text" name="text" placeholder="Enter Image URL" class="input-text">
+				  		</div>
+				  		<!-- LINK -->	
+				  		<div>
+				  			<input type="text" name="text" placeholder="Enter  URL" class="input-text">
+				  		</div>
+				  		<!-- BUTOON -->
+						<div>
+				   	 		<button class="btn" ng-clic="openModal('my-modal2');">Add a Note</button>
+				   	 		<button class="btn" id="btn2" ng-click="closeModal('my-modal1');">Cancel</button>
+				  		</div>
+				  	</div>  	
+				</div>
+			</div>
+		</modal>
+		<!-- MODAL DIALOG ADDED NOTE -->
+		<modal  id="my-modal2">
+			<div class="modal">	
+				<div class="modal-content">
+				  	<div class="modal-header">
+				   		<h2>Add/Edit Note</h2>
+				  	</div>
+				  	<div class="messages-OK">
+				  		<div class="icon icon-notes" id="ic4"> </div>
+				  			<div>
+				  				<h3><i class="fa fa-check-circle" id="green-circle"></i> Note has been added</h3>
+
+				  			</div>
+				  		<button class="btn" ng-click="confirmModal();">OK</button>				
+				  	</div>
+				</div>
+			</div>
+		</modal>
 
 <script src="js/app.js"></script>	
 </body>
