@@ -59,55 +59,72 @@
 					        <md-card-content >
 					            <h2>{{band.title}}</h2>
 								<p>{{band.content}}</p>
+
+								<div class="hover-icons">
+									<div class="icon icon-color"></div>
+									<div class="icon icon-edit"></div>
+									<div class="icon icon-trash"></div>
+								</div>
 					        </md-card-content>
 					    </md-card>
 						<!-- IMAGES -->
 					 	<md-card layout-fill  ng-if="band.img" >
-					          <img ng-src="{{band.urlImg}}" id="img-box">
+					         <img ng-src="{{band.urlImg}}" id="img-box">
+
+					         <div class="hover-img">
+								<div class="icon icon-edit"></div>
+								<div class="icon icon-trash"></div>
+							</div>
 					    </md-card>
 						<!-- LINK -->
 						 <md-card layout-fill ng-if="band.link" class="box">
 					        <md-card-content > 
 					        	<a href="{{band.url}}" class="blue-color" target="_blanck">{{band.url}} </a> 
 								<div class="icon icon-new-tab"></div>
+
+								<div class="hover-icons">
+									<div class="icon icon-color"></div>
+									<div class="icon icon-edit"></div>
+									<div class="icon icon-trash"></div>
+								</div>
 					        </md-card-content>							
 					    </md-card>
-						<!-- FOOTER MD-GRID -->
-						<md-grid-tile-footer>
-							<div class="hover-icons">
-								<div class="icon icon-color"></div>
-								<div class="icon icon-edit"></div>
-								<div class="icon icon-trash"></div>
-							</div>
-						</md-grid-tile-footer>
+				
 					</md-grid-tile>	
 				 </md-grid-list>
 			</div>
 		</div>
 
-		<!-- The Modal -->
+		<!-- MODAL DIALOG ADD NOTE-->
 		<div style="visibility: hidden">
-			<div class="md-dialog-container" id="myDialog"> <!-- class modal -->
-				<!-- MODAL DIALOG ADD NOTE-->
+			<div class="md-dialog-container" id="myDialog">
 				<!-- Modal content -->
-				<md-dialog layout-padding=""><!-- <div class="modal-content"> -->
+				<md-dialog layout-padding="">
 					<md-dialog-content>
 					  	<div class="modal-header">
 					   		<h2>Add/Edit Note</h2>
 					  	</div>
+					  
 					  	<div class="modal-body">
-					  		<div>
+					  		<div >
 					  			<p>Choose what kind of note you would like to add:</p> 
-					  			<md-radio-group >
-					  				<md-radio-button class="icon icon-notes" id="ic1" ng-value="note" arial-label="note">Notes</md-radio-button>			    				
-									<md-radio-button class="icon icon-images" id="ic2" ng-value="urlImg" arial-label="image">Images</md-radio-button>  
-									
+					  			<md-radio-group layout="row" >
+					  				<md-radio-button class="md-primary "  ng-value="note" arial-label="note">
+										<md-icons class="icon icon-notes" id="ic1" ></md-icons>
+					  					Notes
+					  				</md-radio-button>	
 
-									<!-- <input type="radio" name="Link" class="input-radio">  -->
-									<!-- <label class="icon icon-link" id="ic3"> Links</label>	 -->
-									<md-radio-button class="icon icon-link" id="ic3" ng-value="urlLink" arial-label="link">Links</md-radio-button>
-													
+									<md-radio-button  ng-value="urlImg" arial-label="image">
+										<md-icons class="icon icon-images" id="ic2" ></md-icons>
+										Images
+									</md-radio-button>  
+									
+									<md-radio-button  ng-value="urlLink" arial-label="link">
+										<md-icons class="icon icon-link" id="ic3" id="ic2" ></md-icons>
+										Links
+									</md-radio-button>					
 					  			</md-radio-group>
+					  			
 					  		</div>
 					  		<!-- NOTE -->
 					  		<div >
@@ -123,8 +140,8 @@
 					  			<input type="text" name="text" placeholder="Enter  URL" class="input-text">
 					  		</div>
 					  		<!-- BUTOON -->
-							<div>
-					   	 		<md-button class="btn" ng-clic="openModal('my-modal2');">Add a Note</md-button>
+							<div id="btn">
+					   	 		<md-button class="md-primary md-raised btn" ng-click="showPrerenderedDialog2($event)">Add a Note</md-button>
 					   	 		<md-button class="btn" id="btn2" ng-click="closeModal('my-modal1');">Cancel</md-button>
 					  		</div>
 					  	</div> 
@@ -132,24 +149,31 @@
 				</md-dialog>
 			</div>
 		</div>
-		<!-- MODAL DIALOG ADDED NOTE -->
-		<modal  id="my-modal2">
-			<div class="modal">	
-				<div class="modal-content">
-				  	<div class="modal-header">
-				   		<h2>Add/Edit Note</h2>
-				  	</div>
-				  	<div class="messages-OK">
-				  		<div class="icon icon-notes" id="ic4"> </div>
-				  			<div>
-				  				<h3><i class="fa fa-check-circle" id="green-circle"></i> Note has been added</h3>
+		
+		<!-- MODAL DIALOG ADDED NOTE -OK- -->
+		<div style="visibility: hidden">
+			<div class="md-dialog-container" id="myDialog2"> 
+				
+				<md-dialog layout-padding="">
+					<md-dialog-content>
 
-				  			</div>
-				  		<button class="btn" ng-click="confirmModal();">OK</button>				
-				  	</div>
-				</div>
+					  	<div class="modal-header">
+					   		<h2>Add/Edit Note</h2>
+					  	</div>
+					  
+					  	<div class="messages-OK">
+					  		<md-icons class="icon icon-notes" id="ic4" ></md-icons>
+					  		<div >
+					  			<h3><i class="fa fa-check-circle" id="green-circle"></i> Note has been added</h3>
+					  		</div>	
+							<md-button  class="btn" ng-click="confirmModal();" ng-value="ok" arial-label="ok">
+								OK
+							</md-button>					
+					  		
+					  </md-dialog-content> 	
+				</md-dialog>
 			</div>
-		</modal>
+		</div>
 
 <script src="js/app.js"></script>	
 </body>

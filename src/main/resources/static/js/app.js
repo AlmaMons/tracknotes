@@ -144,6 +144,15 @@ $scope.getAll=function(){
     });
   };
 
+   $scope.showPrerenderedDialog2 = function(ev1) {
+    $mdDialog.show({
+      contentElement: '#myDialog2',
+      parent: angular.element(document.body),
+      targetEvent: ev1,
+      clickOutsideToClose: true
+    });
+  };
+
 })
 
 
