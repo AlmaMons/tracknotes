@@ -1,7 +1,7 @@
 var app = angular.module('kim',['ngMaterial', 'ngMessages', 'material.svgAssetsCache']);
 
 
-app.controller('mainCtrl', function($scope,$http,$mdDialog){
+app.controller('mainCtrl', function($scope, $http,$mdDialog){
 
 $scope.bands = [
 // 	// NOTES
@@ -115,6 +115,11 @@ $scope.getNotes=function(){
 
 }
 
+
+
+
+
+ $scope.modalInputText = 'note';
 
 $scope.getAll=function(){ 
 

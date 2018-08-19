@@ -108,37 +108,43 @@
 					  	<div class="modal-body">
 					  		<div >
 					  			<p>Choose what kind of note you would like to add:</p> 
-					  			<md-radio-group layout="row" >
-					  				<md-radio-button class="md-primary "  ng-value="note" arial-label="note">
+					  			<md-radio-group layout="row" ng-model="modalInputText">
+					  				<md-radio-button class="md-primary"  arial-label="note" value="note">
 										<md-icons class="icon icon-notes" id="ic1" ></md-icons>
 					  					Notes
 					  				</md-radio-button>	
 
-									<md-radio-button  ng-value="urlImg" arial-label="image">
+									<md-radio-button class="md-primary"  arial-label="image" value="img">
 										<md-icons class="icon icon-images" id="ic2" ></md-icons>
 										Images
 									</md-radio-button>  
 									
-									<md-radio-button  ng-value="urlLink" arial-label="link">
+									<md-radio-button class="md-primary"  arial-label="link" value="link">
 										<md-icons class="icon icon-link" id="ic3" id="ic2" ></md-icons>
 										Links
 									</md-radio-button>					
 					  			</md-radio-group>
 					  			
 					  		</div>
-					  		<!-- NOTE -->
-					  		<div >
-					  			<input type="text" name="text" placeholder="Titile" class="input-text">
-					  			<input type="text" name="text" placeholder="Take a note..." class="input-text">
+					  		
+					  		<div ng-switch on ="modalInputText">
+								<!-- NOTE -->
+						  		<div ng-switch-when="note">
+						  			<input type="text" name="title" placeholder="Titile" class="input-text">
+						  			<input type="text" name="note" placeholder="Take a note..." class="input-text">
+						  		</div>
+
+						  		<!-- IMAGE -->
+						  		<div ng-switch-when="img">
+						  			<input type="text" name="img" placeholder="Enter Image URL" class="input-text">
+						  		</div>
+						  		
+						  		<!-- LINK -->	
+						  		<div ng-switch-when="link">
+						  			<input type="text" name="link" placeholder="Enter  URL" class="input-text">
+						  		</div>
 					  		</div>
-					  		<!-- IMAGE -->
-					  		<div>
-					  			<input type="text" name="text" placeholder="Enter Image URL" class="input-text">
-					  		</div>
-					  		<!-- LINK -->	
-					  		<div>
-					  			<input type="text" name="text" placeholder="Enter  URL" class="input-text">
-					  		</div>
+
 					  		<!-- BUTOON -->
 							<div id="btn">
 					   	 		<md-button class="md-primary md-raised btn" ng-click="showPrerenderedDialog2($event)">Add a Note</md-button>
@@ -166,9 +172,7 @@
 					  		<div >
 					  			<h3><i class="fa fa-check-circle" id="green-circle"></i> Note has been added</h3>
 					  		</div>	
-							<md-button  class="btn" ng-click="confirmModal();" ng-value="ok" arial-label="ok">
-								OK
-							</md-button>					
+							<md-button  class="btn" ng-click="confirmModal();" ng-value="ok" arial-label="ok">OK</md-button>					
 					  		
 					  </md-dialog-content> 	
 				</md-dialog>
